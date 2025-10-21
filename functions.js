@@ -47,9 +47,23 @@ function remove(animals, name) {
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-
-
+function add(animals, animal) {
+    // Check if animal has name and species properties with length > 0
+    if (animal.name.length === 0 || animal.species.length === 0) {
+        return false;
+    }
+    
+    // Check if animal has unique name
+    for (let i = 0; i < animals.length; i++) {
+        if (animals[i].name === animal.name) {
+            return false;
+        }
+    }
+    
+    // Add the animal to the array
+    animals.push(animal);
+    return true;
+}
 /**
  * You did it! You're all done with Matchy!
  */
