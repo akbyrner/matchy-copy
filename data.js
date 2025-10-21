@@ -11,20 +11,38 @@
 //////////////////////////////////////////////////////////////////////
 // Step 1 - Object Creation //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+var animal = {};
 
+animal.species = "Dog";
+animal["name"] = "Barbie";
+animal.noises = [];
+
+console.log(animal);
 
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Array Creation ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+var noises = [];
+
+noises[0] = 'bark';
+noises.push("woof");
+noises.unshift("awoo")
+noises[noises.length] = "pant"
 
 
+console.log(noises.length);
+console.log(noises[noises.length - 1]);
+console.log(noises);
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Combining Step 1 and 2 ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+animal["noises"] = noises;
+animal.noises.splice(0, 0, "arf");
 
+console.log(animal);
 
 
 /* *******************************************************************
@@ -49,15 +67,48 @@
 //////////////////////////////////////////////////////////////////////
 // Step 6 - A Collection of Animals //////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+var animals = [];
 
+animals.push(animal);
 
+var duck = { species: 'Duck', name: 'Jerome', noises: ['quack', 'honk', 'sneeze', 'woosh'] };
+animals.push(duck);
 
+var fox = {
+  species: "Fox",
+  name: "Finnick",
+  noises: ["chittering", "squeal", "howl"]
+};
+var elephant =  {
+  species: "Elephant",
+  name: "Mama",
+  noises: ["growl", "trumpet call", "foot-stomp"]
+};
+animals.push(fox);
+animals.push(elephant);
+
+console.log(animals)
+console.log(animals.length)
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-
-
+//I will use an array because it is the best data structure for making ordered lists
+var friends = [];
+//return a random index of a provided array
+function getRandom(array){
+  return Math.floor(Math.random() * array.length);
+}
+//assign random index to variable
+var num = getRandom(animals);
+//get name of animal based on random index
+var name = animals[num].name;
+//push name to empty array friends
+friends.push(name);
+console.log(friends);
+//add array friends as a property also named friends to one of the animals in the animals array
+animals[getRandom(animals)].friends = friends;
+console.log(animals);
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
  * move onto Part 2 in the file called "functions.js"
